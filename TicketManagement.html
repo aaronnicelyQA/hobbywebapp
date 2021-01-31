@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/" class="navbar-brand">Nicely's Trains</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" href="#togglethis">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="togglethis">
+            <ul>
+                <li class="nav-item">
+
+                    <a href="Home.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+
+                    <a href="TicketManagement.html" class="nav-link">Ticket Management</a>
+                </li>
+                <li class="nav-item">
+
+                    <a href="Contact.html" class="nav-link">Conatct Us</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <br>
+
+
+
+
+
+    <h1> Welcome to Ticket Managament</h1>
+    <h3>Here you can book, view, update and delete train tickets !</h3>
+
+    <!-- Create -->
+
+    <form>
+        <div id="create">
+            <input type="text" class="form-control" id="createName" required placeholder="Name" style="width: 200px;" />
+            <input type="text" class="form-control" id="createAge" required placeholder="Age" style="width: 200px;" />
+            <input type="text" class="form-control" id="createAddress" required placeholder="Address" style="width: 200px;" />
+            <input type="text" class="form-control" id="createTrain" required placeholder="Train e.g. London Euston"
+                style="width: 200px;" />
+            <div class="row">
+                <div class="col-md">
+                    <button type="button" id="createButton" class="btn btn-info"> Book Ticket</button>
+    </form>
+    </div>
+
+
+    <br> </br>
+
+    <!-- Read -->
+    <form>
+        <div id="read">
+
+            <input type="text" class="form-control" id="read" required placeholder="Click below to see tickets" style="height:120px; width:200px;">
+
+            <!-- <input type="text" class="form-control" id="name" required placeholder="Name" style="width: 200px;"/> -->
+
+            <div class="row">
+                <div class="col-md">
+                    <button type="submit" id="readButton" class="btn btn-info"> View Ticket</button>
+    </form>
+    </div>
+    </div>
+
+    <br> </br>
+
+    <!-- Update -->
+    <form>
+        <div id="update">
+            <input type="text" class="form-control" id="updatedName" required placeholder="Update your Name"
+                style="width: 200px;" />
+            <input type="text" class="form-control" id="updatedAge" required placeholder="Update your Age"
+                style="width: 200px;" />
+            <input type="text" class="form-control" id="updatedAddress" required placeholder="Update your Address"
+                style="width: 200px;" />
+            <input type="text" class="form-control" id="updatedTrain" required placeholder="Update your Train"
+                style="width: 200px;" />
+            <div class="row">
+                <div class="col-md">
+                    <button type="submit" id="updateButton" class="btn btn-info"> Update Ticket</button>
+    </form>
+    </div>
+
+    <br> </br>
+
+    <!-- Delete -->
+
+    <form>
+        <div id="delete">
+            <input type="text" class="form-control" id="delete" required
+                placeholder="Enter the ID of the Train you want to delete" style="width: 330px;" />
+            <div class="row">
+                <div class="col-md">
+                    <button type="submit" id="deleteButton" class="btn btn-info"> Delete Ticket</button>
+    </form>
+    </div>
+
+    <style>
+        body {
+            background-image: url('trains.jpg');
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+        <script src ="TicketManagement.js"> </script>
+</body>
+
+</html>
