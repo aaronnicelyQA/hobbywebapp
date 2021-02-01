@@ -36,7 +36,7 @@ public class PeopleControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper jsonifier;
 	
-	private final int TEST_ID =;
+	private final int TEST_ID ;
 	
 	private PeopleDTO mapToDTO(PeopleDomain model) {
 		return this.mapper.map(model,  PeopleDTO.class);
@@ -77,18 +77,8 @@ public class PeopleControllerIntegrationTest {
 			.andExpect(matchContent);
 		}
 		
-		@Test
-		public void readAllPeople() { 
-			
-		}
 		
-		//UPDATE
-		@Test
-		public void updatePeople() { 
-			
-		}
-		
-	}
+
 	
 	//READ
 	@Test
@@ -117,7 +107,28 @@ public class PeopleControllerIntegrationTest {
 	}
 	
 	@Test
-	public void readAllPeople() { 
+	public void readAllPeople() throws Exception { 
+		
+		//Staged Resource // expectation
+				PeopleDTO TEST_PEOPLE = new PeopleDTO(1L, "AARON", 23, "22 Draycote Road");
+				
+				//Prepared REST Request
+				MockHttpServletRequestBuilder mockRequest
+				
+				= MockMvcRequestBuilders.request(HttpMethod.GET, "/people/readAll/"+TEST_ID)
+				.contentType(MediaType.APPLICATION_JSON)
+				//.content(this.jsonifier.writeValueAsString(value))
+				.accept(MediaType.APPLICATION_JSON);
+				
+				
+				//Assertion Checks
+				ResultMatcher matchContent = MockMvcResultMatchers.content().json(this,jsonifier.writeValueAsString(TEST_PEOPLE));
+				ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
+				
+				//Perform & Assert
+				this.mock.perform(mockRequest)
+				.andExpect(matchStatus)
+				.andExpect(matchContent);
 		
 	}
 	
@@ -125,11 +136,53 @@ public class PeopleControllerIntegrationTest {
 	@Test
 	public void updatePeople() { 
 		
+		//Staged Resource // expectation
+				PeopleDTO TEST_PEOPLE = new PeopleDTO(1L, "AARON", 23, "22 Draycote Road");
+				
+				//Prepared REST Request
+				MockHttpServletRequestBuilder mockRequest
+				
+				= MockMvcRequestBuilders.request(HttpMethod.GET, "/people/update/"+TEST_ID)
+				.contentType(MediaType.APPLICATION_JSON)
+				//.content(this.jsonifier.writeValueAsString(value))
+				.accept(MediaType.APPLICATION_JSON);
+				
+				
+				//Assertion Checks
+				ResultMatcher matchContent = MockMvcResultMatchers.content().json(this,jsonifier.writeValueAsString(TEST_PEOPLE));
+				ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
+				
+				//Perform & Assert
+				this.mock.perform(mockRequest)
+				.andExpect(matchStatus)
+				.andExpect(matchContent);
+		
 	}
 	
 	//DELETE
 	@Test
-	public void deletePeople() { 
+	public void deletePeople() throws Exception { 
+		
+		//Staged Resource // expectation
+				PeopleDTO TEST_PEOPLE = new PeopleDTO(1L, "AARON", 23, "22 Draycote Road");
+				
+				//Prepared REST Request
+				MockHttpServletRequestBuilder mockRequest
+				
+				= MockMvcRequestBuilders.request(HttpMethod.GET, "/people/delete/"+TEST_ID)
+				.contentType(MediaType.APPLICATION_JSON)
+				//.content(this.jsonifier.writeValueAsString(value))
+				.accept(MediaType.APPLICATION_JSON);
+				
+				
+				//Assertion Checks
+				ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(TEST_PEOPLE));
+				ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
+				
+				//Perform & Assert
+				this.mock.perform(mockRequest)
+				.andExpect(matchStatus)
+				.andExpect(matchContent);
 		
 	}
 	
